@@ -10,7 +10,10 @@
     <ui:define name="content">
         <h1>Production events page</h1>
         <h:form>
-            Somethings
+            <p:commandButton value="Create new" type="button" onclick="window.location = '/production-event/create'"/>
+            <ui:repeat value="#{productionEventsMainView.all}" var="productionEvent">
+                <p:link href="/production-event/#{productionEvent.id}" value="#{productionEvent.id}"/><br/>
+            </ui:repeat>
         </h:form>
     </ui:define>
 </ui:composition>

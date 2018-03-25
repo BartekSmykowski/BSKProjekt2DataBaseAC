@@ -21,8 +21,8 @@ public class ProductResource
 	private final int count;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private final Product product;
+	private Product product;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private final Resource resource;
+	private Resource resource;
 }

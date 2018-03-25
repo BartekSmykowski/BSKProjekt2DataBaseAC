@@ -36,8 +36,8 @@ public class ProductionEvent
 	private int workplace;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private final Product product;
+	private Product product;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private final Employee employee;
+	private Employee employee;
 }
