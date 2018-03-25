@@ -36,8 +36,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 	{ 
         http
             .authorizeRequests()
-				.antMatchers("/**").permitAll()
-                .anyRequest().permitAll()
+				.antMatchers("/authentication/login/**", "/javax.faces.resource/**").permitAll()
+                .anyRequest().authenticated()
             .and()
             	.formLogin().loginPage("/authentication/login")
             	.usernameParameter("j_username")
@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 				.invalidateHttpSession(true)
             .and()
             	.csrf().disable()
-            .exceptionHandling().accessDeniedPage("/denied/index")
+            .exceptionHandling()
             .and()
             	.sessionManagement()
 				.maximumSessions(1)

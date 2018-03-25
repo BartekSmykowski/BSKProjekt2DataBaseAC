@@ -32,6 +32,8 @@
                     <p:outputPanel id="buttonsPanel">
                         <p:commandButton id="adminCredentials" value="Admin"
                                          onclick="useAdminCredentials();" type="button"/>
+                        <p:commandButton id="brygadzistaCredentials" value="Brygadzista"
+                                         onclick="useBrygadzistaCredentials();" type="button"/>
                         <p:commandButton style="float:right" id="submitButton"
                                          ajax="false" type="submit" value="Login"/>
                         <p:selectBooleanCheckbox id="_spring_security_remember_me"/>
@@ -46,6 +48,10 @@
             function useAdminCredentials() {
                 document.getElementById("j_username").value = "admin";
                 document.getElementById("j_password").value = "admin";
+            }
+            function useBrygadzistaCredentials() {
+                document.getElementById("j_username").value = "brygadzista";
+                document.getElementById("j_password").value = "brygadzista";
             }
         </script>
     </ui:define>

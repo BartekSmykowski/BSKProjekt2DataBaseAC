@@ -1,1 +1,2 @@
 insert into users (id, creation_date, nickname, password, role) values (1, NOW(), 'admin', 'admin', 'admin');
+insert into users (id, creation_date, nickname, password, role) values (2, NOW(), 'brygadzista', 'brygadzista', 'brygadzista');
