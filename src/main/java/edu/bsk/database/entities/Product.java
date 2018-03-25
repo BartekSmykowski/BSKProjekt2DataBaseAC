@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity(name = "Product")
 @Table(name = "products")
@@ -24,4 +25,10 @@ public class Product
 
 	@Column(name = "count")
 	private final int count;
+
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+	private Collection<ProductionEvent> productionEvents;
+
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+	private Collection<ProductResource> productResources;
 }

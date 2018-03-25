@@ -1,5 +1,6 @@
 package edu.bsk.database.entities;
 
+import java.util.Collection;
 import java.util.Date;
 
 import lombok.Data;
@@ -48,4 +49,7 @@ public class Employee
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "nickname")
 	private Date employmentFinishedDate;
+
+	@OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+	private Collection<ProductionEvent> productionEvents;
 }
