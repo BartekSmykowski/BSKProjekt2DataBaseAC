@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="content">
+        <h1>Create production event page</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>PESEL:</td>
+                    <td><h:outputText value="#{employee.PESEL}"/></td>
+                </tr>
+                <tr>
+                    <td>Building number:</td>
+                    <td><h:outputText value="#{employee.buildingNumber}" /></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><h:outputText value="#{employee.city}"/></td>
+                </tr>
+                <tr>
+                    <td>Employment date:</td>
+                    <td><h:outputText value="#{employee.employmentDate}" /></td>
+                </tr>
+                <tr>
+                    <td>Employment finished date:</td>
+                    <td><h:outputText value="#{employee.employmentFinishedDate}" /></td>
+                </tr>
+                <tr>
+                    <td>Frist name:</td>
+                    <td><h:outputText value="#{employee.firstName}"/></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><h:outputText value="#{employee.lastName}"/></td>
+                </tr>
+                <tr>
+                    <td>Permament:</td>
+                    <td><h:outputText value="#{employee.permanent}"/></td>
+                </tr>
+                <tr>
+                    <td>House number:</td>
+                    <td><h:outputText value="#{employee.houseNumber}"/></td>
+                </tr>
+                <tr>
+                    <td>Post code:</td>
+                    <td><h:outputText value="#{employee.postCode}"/></td>
+                </tr>
+                <tr>
+                    <td>Street:</td>
+                    <td><h:outputText value="#{employee.street}"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

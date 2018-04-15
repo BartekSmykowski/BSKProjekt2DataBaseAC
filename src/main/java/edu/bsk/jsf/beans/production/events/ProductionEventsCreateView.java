@@ -21,7 +21,7 @@ public class ProductionEventsCreateView
 
 	private final ProductionEvent productionEvent = new ProductionEvent();
 	private int productId;
-	private int employeeId;
+	private String employeeId;
 
 	@Inject
 	public ProductionEventsCreateView(ProductionEventRepository productionEventRepository,
@@ -47,12 +47,12 @@ public class ProductionEventsCreateView
 		this.productId = productId;
 	}
 
-	public int getEmployeeId()
+	public String getEmployeeId()
 	{
 		return employeeId;
 	}
 
-	public void setEmployeeId(int employeeId)
+	public void setEmployeeId(String employeeId)
 	{
 		this.employeeId = employeeId;
 	}

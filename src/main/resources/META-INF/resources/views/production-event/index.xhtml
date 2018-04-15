@@ -11,8 +11,8 @@
         <h1>Production events page</h1>
         <h:form>
             <p:commandButton value="Create new" type="button" onclick="window.location = '/production-event/create'"/><br/>
-            <ui:repeat value="#{productionEventsMainView.all}" var="product">
-                <p:link href="/production-event/#{product.id}" value="#{product.id}"/><br/>
+            <ui:repeat value="#{productionEventsMainView.all}" var="employee">
+                <p:link href="/production-event/#{employee.id}" value="#{employee.id}"/><br/>
             </ui:repeat>
         </h:form>
     </ui:define>

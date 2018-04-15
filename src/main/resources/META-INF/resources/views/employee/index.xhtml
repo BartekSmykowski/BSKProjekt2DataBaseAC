@@ -9,9 +9,9 @@
     <ui:define name="content">
         <h1>Production events page</h1>
         <h:form>
-            <p:commandButton value="Create new" type="button" onclick="window.location = '/product/create'"/><br/>
-            <ui:repeat value="#{productMainView.all}" var="employee">
-                <p:link href="/product/#{employee.id}" value="#{employee.name}"/><br/>
+            <p:commandButton value="Create new" type="button" onclick="window.location = '/employee/create'"/><br/>
+            <ui:repeat value="#{employeeMainView.all}" var="employee">
+                <p:link href="/employee/#{employee.PESEL}" value="#{not empty employee.lastName ? employee.lastName : employee.PESEL}"/><br/>
             </ui:repeat>
         </h:form>
     </ui:define>

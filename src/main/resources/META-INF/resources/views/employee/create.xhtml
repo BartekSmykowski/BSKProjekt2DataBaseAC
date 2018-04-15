@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="content">
+        <h1>Create production event page</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>PESEL:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.PESEL}"/></td>
+                </tr>
+                <tr>
+                    <td>Building number:</td>
+                    <td><p:inputNumber value="#{employeeCreateView.employee.buildingNumber}" decimalPlaces="0" minValue="0" /></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.city}"/></td>
+                </tr>
+                <tr>
+                    <td>Employment date:</td>
+                    <td><p:calendar value="#{employeeCreateView.employee.employmentDate}" /></td>
+                </tr>
+                <tr>
+                    <td>Employment finished date:</td>
+                    <td><p:calendar value="#{employeeCreateView.employee.employmentFinishedDate}" /></td>
+                </tr>
+                <tr>
+                    <td>Frist name:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.firstName}"/></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.lastName}"/></td>
+                </tr>
+                <tr>
+                    <td>Permament:</td>
+                    <td><p:selectBooleanCheckbox value="#{employeeCreateView.employee.permanent}"/></td>
+                </tr>
+                <tr>
+                    <td>House number:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.houseNumber}"/></td>
+                </tr>
+                <tr>
+                    <td>Post code:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.postCode}"/></td>
+                </tr>
+                <tr>
+                    <td>Street:</td>
+                    <td><p:inputText value="#{employeeCreateView.employee.street}"/></td>
+                </tr>
+            </table>
+            <p:commandButton value="Save" actionListener="#{employeeCreateView.save()}"
+                oncomplete="window.location='/employee'"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
