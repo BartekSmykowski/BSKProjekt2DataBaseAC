@@ -8,24 +8,28 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../common/template.xhtml">
     <ui:define name="content">
-        <h1>Show product page</h1>
+        <h1>Show production event page</h1>
         <h:form>
             <table>
                 <tr>
-                    <td>Id:</td>
-                    <td><h:outputText value="#{product.id}"/></td>
+                    <td>Employee pesel:</td>
+                    <td><h:outputText value="#{productionEvent.employee.PESEL}"/></td>
+                </tr>
+                <tr>
+                    <td>Product id:</td>
+                    <td><h:outputText value="#{productionEvent.product.id}"/></td>
                 </tr>
                 <tr>
                     <td>Count:</td>
-                    <td><h:outputText value="#{product.count}" /></td>
+                    <td><h:outputText value="#{productionEvent.count}"/></td>
                 </tr>
                 <tr>
-                    <td>Name:</td>
-                    <td><h:outputText value="#{product.name}"/></td>
+                    <td>Production line:</td>
+                    <td><h:outputText value="#{productionEvent.productionLine}"/></td>
                 </tr>
                 <tr>
-                    <td>Price:</td>
-                    <td><h:outputText value="#{product.price}"/></td>
+                    <td>Workplace:</td>
+                    <td><h:outputText value="#{productionEvent.workplace}"/></td>
                 </tr>
             </table>
         </h:form>

@@ -7,11 +7,11 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../common/template.xhtml">
     <ui:define name="content">
-        <h1>Production events page</h1>
+        <h1>Products page</h1>
         <h:form>
             <p:commandButton value="Create new" type="button" onclick="window.location = '/product/create'"/><br/>
-            <ui:repeat value="#{productMainView.all}" var="employee">
-                <p:link href="/product/#{employee.id}" value="#{employee.name}"/><br/>
+            <ui:repeat value="#{productMainView.all}" var="production-event">
+                <p:link href="/product/#{ production-event .id}" value="#{ production-event .name}"/><br/>
             </ui:repeat>
         </h:form>
     </ui:define>
