@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="content">
+        <h1>Create product resource page</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Product id:</td>
+                    <td><p:inputNumber value="#{productResourceCreateView.productId}" decimalPlaces="0" minValue="0" /></td>
+                </tr>
+                <tr>
+                    <td>Resource id:</td>
+                    <td><p:inputNumber value="#{productResourceCreateView.resourceId}" decimalPlaces="0" minValue="0" /></td>
+                </tr>
+                <tr>
+                    <td>Id:</td>
+                    <td><p:inputText value="#{productResourceCreateView.productResource.id}"/></td>
+                </tr>
+                <tr>
+                    <td>Count:</td>
+                    <td><p:inputNumber value="#{productResourceCreateView.productResource.count}" decimalPlaces="0" minValue="0" /></td>
+                </tr>
+            </table>
+            <p:commandButton value="Save" actionListener="#{productResourceCreateView.save()}"
+                oncomplete="window.location='/product-resource'"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

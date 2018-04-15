@@ -18,7 +18,7 @@ public class ProductResource
 	private Integer id;
 
 	@Column(name = "count")
-	private final int count;
+	private int count;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Product product;
