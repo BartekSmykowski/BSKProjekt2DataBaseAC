@@ -12,7 +12,7 @@
                  type="preRenderView"/>
     </ui:define>
     <ui:define name="content">
-        <div style="margin: auto; width: 270px; margin-top: 100px;">
+        <div style="margin: auto; width: 380px; margin-top: 100px;">
             <h:form id="loginForm" prependId="false"
                     onsubmit="this.action='/j_spring_security_check';">
 
@@ -32,8 +32,19 @@
                     <p:outputPanel id="buttonsPanel">
                         <p:commandButton id="adminCredentials" value="Admin"
                                          onclick="useAdminCredentials();" type="button"/>
+                        <p:commandButton id="noRoleCredentials" value="No role"
+                                         onclick="useNoRoleCredentials();" type="button"/>
                         <p:commandButton id="brygadzistaCredentials" value="Brygadzista"
                                          onclick="useBrygadzistaCredentials();" type="button"/>
+                        <p:commandButton id="magazynierCredentials" value="Magazynier"
+                                         onclick="useMagazynierCredentials();" type="button"/>
+                        <p:commandButton id="sprzedawcaCredentials" value="Sprzedawca"
+                                         onclick="useSprzedawcaCredentials();" type="button"/>
+                        <p:commandButton id="managerZatrudnieniaCredentials" value="Sprzedawca"
+                                         onclick="useManagerZatrudnieniaCredentials();" type="button"/>
+                        <p:commandButton id="projektantProduktowCredentials" value="Projektant produktow"
+                                         onclick="useProjektantProduktowCredentials();" type="button"/>
+
                         <p:commandButton style="float:right" id="submitButton"
                                          ajax="false" type="submit" value="Login"/>
                         <p:selectBooleanCheckbox id="_spring_security_remember_me"/>
@@ -46,12 +57,29 @@
     <ui:define name="script">
         <script type="text/javascript">
             function useAdminCredentials() {
-                document.getElementById("j_username").value = "admin";
-                document.getElementById("j_password").value = "admin";
+                useCredentials("admin", "admin");
+            }
+            function useCredentials(username, password) {
+                document.getElementById("j_username").value = username;
+                document.getElementById("j_password").value = password;
+            }
+            function useNoRoleCredentials() {
+                useCredentials("no_role", "no_role");
             }
             function useBrygadzistaCredentials() {
-                document.getElementById("j_username").value = "brygadzista";
-                document.getElementById("j_password").value = "brygadzista";
+                useCredentials("brygadzista", "brygadzista");
+            }
+            function useMagazynierCredentials() {
+                useCredentials("magazynier", "magazynier");
+            }
+            function useSprzedawcaCredentials() {
+                useCredentials("sprzedawca", "sprzedawca");
+            }
+            function useManagerZatrudnieniaCredentials() {
+                useCredentials("manager_zatrudnienia", "manager_zatrudnienia");
+            }
+            function useProjektantProduktowCredentials() {
+                useCredentials("projektant_produktow", "projektant_produktow");
             }
         </script>
     </ui:define>
