@@ -22,21 +22,21 @@ public class ProductResourceController
 	}
 
 	@RequestMapping({"", "/", "/index"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_projektant_produktow"})
 	public String index()
 	{
 		return "product-resource/index";
 	}
 
 	@RequestMapping({"/create", "/create/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_projektant_produktow"})
 	public String create()
 	{
 		return "product-resource/create";
 	}
 
 	@RequestMapping({"/{id}", "/{id}/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_projektant_produktow"})
 	public String show(@PathVariable Integer id, ModelMap model)
 	{
 		ProductResource productResource = productResourceRepository.findById(id)

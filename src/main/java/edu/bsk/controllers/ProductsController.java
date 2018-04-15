@@ -23,21 +23,21 @@ public class ProductsController
 	}
 
 	@RequestMapping({"", "/", "/index"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_sprzedawca", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String index()
 	{
 		return "product/index";
 	}
 
-	@RequestMapping({"/create", "/create/"})
-	@Secured({"ROLE_admin"})
+	@RequestMapping({"/create", "/create/", "ROLE_projektant_produktow"})
+	@Secured({"ROLE_admin", "ROLE_magazynier"})
 	public String create()
 	{
 		return "product/create";
 	}
 
 	@RequestMapping({"/{id}", "/{id}/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_sprzedawca", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String show(@PathVariable Integer id, ModelMap model)
 	{
 		Product product = productRepository.findById(id)

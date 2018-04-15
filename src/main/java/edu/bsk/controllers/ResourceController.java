@@ -24,21 +24,21 @@ public class ResourceController
 	}
 
 	@RequestMapping({"", "/", "/index"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String index()
 	{
 		return "resource/index";
 	}
 
 	@RequestMapping({"/create", "/create/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String create()
 	{
 		return "resource/create";
 	}
 
 	@RequestMapping({"/{id}", "/{id}/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String show(@PathVariable Integer id, ModelMap model)
 	{
 		Resource resource = resourceRepository.findById(id)

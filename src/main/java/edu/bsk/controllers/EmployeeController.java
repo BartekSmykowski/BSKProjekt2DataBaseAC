@@ -22,21 +22,21 @@ public class EmployeeController
 	}
 
 	@RequestMapping({"", "/", "/index"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista", "ROLE_manager_zatrudnienia"})
 	public String index()
 	{
 		return "employee/index";
 	}
 
 	@RequestMapping({"/create", "/create/"})
-	@Secured({"ROLE_admin"})
+	@Secured({"ROLE_admin", "ROLE_manager_zatrudnienia"})
 	public String create()
 	{
 		return "employee/create";
 	}
 
 	@RequestMapping({"/{PESEL}", "/{PESEL}/"})
-	@Secured({"ROLE_magazynier"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista", "ROLE_manager_zatrudnienia"})
 	public String show(@PathVariable String PESEL, ModelMap model)
 	{
 		Employee product = employeeRepository.findById(PESEL)
