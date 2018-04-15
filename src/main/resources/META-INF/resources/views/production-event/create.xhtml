@@ -13,26 +13,26 @@
             <table>
                 <tr>
                     <td>Employee id:</td>
-                    <td><p:inputText value="#{productionEventsCreateView.employeeId}"/></td>
+                    <td><p:inputText value="#{resourcesCreateView.employeeId}"/></td>
                 </tr>
                 <tr>
                     <td>Product id:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productId}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{resourcesCreateView.productId}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Count:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.count}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{resourcesCreateView.productionEvent.count}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Production line:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.productionLine}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{resourcesCreateView.productionEvent.productionLine}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Workplace:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.workplace}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{resourcesCreateView.productionEvent.workplace}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
             </table>
-            <p:commandButton value="Save" actionListener="#{productionEventsCreateView.save()}"
+            <p:commandButton value="Save" actionListener="#{resourcesCreateView.save()}"
                 oncomplete="window.location='/production-event'"/>
         </h:form>
     </ui:define>

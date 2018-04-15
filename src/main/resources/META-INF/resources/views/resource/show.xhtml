@@ -8,12 +8,22 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../common/template.xhtml">
     <ui:define name="content">
-        <h1>Production events page</h1>
+        <h1>Show resource page</h1>
         <h:form>
-            <p:commandButton value="Create new" type="button" onclick="window.location = '/production-event/create'"/><br/>
-            <ui:repeat value="#{resourcesMainView.all}" var="productionEvent">
-                <p:link href="/production-event/#{productionEvent.id}" value="#{productionEvent.id}"/><br/>
-            </ui:repeat>
+            <table>
+                <tr>
+                    <td>Id:</td>
+                    <td><h:outputText value="#{_resource.id}" /></td>
+                </tr>
+                <tr>
+                    <td>Count:</td>
+                    <td><h:outputText value="#{_resource.count}"/></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><h:outputText value="#{_resource.name}"/></td>
+                </tr>
+            </table>
         </h:form>
     </ui:define>
 </ui:composition>

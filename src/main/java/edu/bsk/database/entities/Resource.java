@@ -18,10 +18,10 @@ public class Resource
 	private Integer id;
 
 	@Column(name = "name")
-	private final String name;
+	private String name;
 
 	@Column(name = "count")
-	private final int count;
+	private int count;
 
 	@OneToMany(mappedBy = "resource", fetch = FetchType.LAZY)
 	private Collection<ProductResource> productResources;
