@@ -24,20 +24,21 @@ public class ProductionEventsController
 	}
 
 	@RequestMapping({"", "/", "/index"})
-	@PreAuthorize("hasAnyRole('ROLE_admin', 'ROLE_brygadzista')")
+	@Secured({"ROLE_admin", "ROLE_brygadzista"})
 	public String index()
 	{
 		return "production-event/index";
 	}
 
 	@RequestMapping({"/create", "/create/"})
-	@Secured({"admin", "brygadzista"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista"})
 	public String create()
 	{
 		return "production-event/create";
 	}
 
 	@RequestMapping({"/{id}", "/{id}/"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista"})
 	public String show(@PathVariable Integer id, ModelMap model)
 	{
 		ProductionEvent productionEvent = productionEventRepository.findById(id)

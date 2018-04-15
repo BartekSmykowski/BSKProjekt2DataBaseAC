@@ -3,6 +3,7 @@ package edu.bsk.controllers;
 import edu.bsk.database.entities.ProductResource;
 import edu.bsk.database.repositories.ProductResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,18 +22,21 @@ public class ProductResourceController
 	}
 
 	@RequestMapping({"", "/", "/index"})
+	@Secured({"ROLE_admin"})
 	public String index()
 	{
 		return "product-resource/index";
 	}
 
 	@RequestMapping({"/create", "/create/"})
+	@Secured({"ROLE_admin"})
 	public String create()
 	{
 		return "product-resource/create";
 	}
 
 	@RequestMapping({"/{id}", "/{id}/"})
+	@Secured({"ROLE_admin"})
 	public String show(@PathVariable Integer id, ModelMap model)
 	{
 		ProductResource productResource = productResourceRepository.findById(id)
