@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity(name = "Product")
-@Table(name = "products")
+@Table(name = "product")
 @Data
 @EqualsAndHashCode(of = "id")
 public class Product
@@ -18,13 +18,13 @@ public class Product
 	private Integer id;
 
 	@Column(name = "name")
-	private final String name;
+	private String name;
 
 	@Column(name = "price")
-	private final float price;
+	private float price;
 
 	@Column(name = "count")
-	private final int count;
+	private int count;
 
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 	private Collection<ProductionEvent> productionEvents;

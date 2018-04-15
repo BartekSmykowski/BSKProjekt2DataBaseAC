@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
@@ -10,9 +9,9 @@
     <ui:define name="content">
         <h1>Production events page</h1>
         <h:form>
-            <p:commandButton value="Create new" type="button" onclick="window.location = '/production-event/create'"/><br/>
-            <ui:repeat value="#{productionEventsMainView.all}" var="product">
-                <p:link href="/production-event/#{product.id}" value="#{product.id}"/><br/>
+            <p:commandButton value="Create new" type="button" onclick="window.location = '/product/create'"/><br/>
+            <ui:repeat value="#{productMainView.all}" var="product">
+                <p:link href="/product/#{product.id}" value="#{product.name}"/><br/>
             </ui:repeat>
         </h:form>
     </ui:define>

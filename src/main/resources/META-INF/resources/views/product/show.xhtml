@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="content">
+        <h1>Create production event page</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Id:</td>
+                    <td><h:outputText value="#{product.id}"/></td>
+                </tr>
+                <tr>
+                    <td>Count:</td>
+                    <td><h:outputText value="#{product.count}" /></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><h:outputText value="#{product.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><h:outputText value="#{product.price}"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
