@@ -54,6 +54,13 @@ public class ResourceController
 		return resource;
 	}
 
+	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	public String edit(@PathVariable Integer id, ModelMap model)
+	{
+		model.addAttribute("resourceId", id);
+		return "resource/edit";
+	}
+
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
 	public String delete(@PathVariable Integer id)
 	{

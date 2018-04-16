@@ -11,8 +11,8 @@ import javax.inject.Inject;
 @ViewScoped
 public class ProductsCreateView
 {
-	private final ProductRepository productRepository;
-	private final Product product = new Product();
+	protected final ProductRepository productRepository;
+	protected Product product = new Product();
 
 	@Inject
 	public ProductsCreateView(ProductRepository productRepository)

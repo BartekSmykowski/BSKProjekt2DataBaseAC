@@ -12,6 +12,7 @@
             <p:commandButton value="Create new" type="button" onclick="window.location = '/employee/create'"/><br/>
             <ui:repeat value="#{employeeMainView.all}" var="employee">
                 <p:link href="/employee/#{employee.PESEL}" value="#{not empty employee.lastName ? employee.lastName : employee.PESEL}"/>
+                <p:link style="margin-left: 30px;" href="/employee/#{employee.PESEL}/edit" value="Edit"/>
                 <p:link style="margin-left: 30px;" href="/employee/#{employee.PESEL}/delete" value="Delete"/><br/>
             </ui:repeat>
         </h:form>

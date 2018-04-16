@@ -13,9 +13,9 @@ import javax.inject.Inject;
 @ViewScoped
 public class EmployeeCreateView
 {
-	private final EmployeeRepository employeeRepository;
+	protected final EmployeeRepository employeeRepository;
 
-	private final Employee employee = new Employee();
+	protected Employee employee = new Employee();
 
 	@Inject
 	public EmployeeCreateView(EmployeeRepository employeeRepository)

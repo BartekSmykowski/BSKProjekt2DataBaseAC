@@ -57,6 +57,14 @@ public class ProductionEventsController
 		return productionEvent;
 	}
 
+	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	public String edit(@PathVariable Integer id, ModelMap model)
+	{
+		model.addAttribute("productionEventId", id);
+		return "production-event/edit";
+	}
+
+
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
 	public String delete(@PathVariable Integer id)
 	{

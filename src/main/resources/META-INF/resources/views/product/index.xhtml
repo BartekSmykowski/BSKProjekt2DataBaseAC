@@ -12,6 +12,7 @@
             <p:commandButton value="Create new" type="button" onclick="window.location = '/product/create'"/><br/>
             <ui:repeat value="#{productMainView.all}" var="product">
                 <p:link href="/product/#{product.id}" value="#{product.name}"/>
+                <p:link style="margin-left: 30px;" href="/product/#{product.id}/edit" value="Edit"/>
                 <p:link style="margin-left: 30px;" href="/product/#{product.id}/delete" value="Delete"/><br/>
             </ui:repeat>
         </h:form>

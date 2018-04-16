@@ -53,6 +53,13 @@ public class ProductsController
 		return product;
 	}
 
+	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	public String edit(@PathVariable Integer id, ModelMap model)
+	{
+		model.addAttribute("productId", id);
+		return "product/edit";
+	}
+
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
 	public String delete(@PathVariable Integer id)
 	{

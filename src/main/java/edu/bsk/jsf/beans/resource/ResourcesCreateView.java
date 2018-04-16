@@ -11,9 +11,9 @@ import javax.inject.Inject;
 @ViewScoped
 public class ResourcesCreateView
 {
-	private final Resource resource = new Resource();
+	protected Resource resource = new Resource();
 
-	private final ResourceRepository resourceRepository;
+	protected final ResourceRepository resourceRepository;
 
 	@Inject
 	public ResourcesCreateView(ResourceRepository resourceRepository)

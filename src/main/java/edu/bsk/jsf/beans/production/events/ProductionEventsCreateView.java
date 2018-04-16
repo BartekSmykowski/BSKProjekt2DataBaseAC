@@ -15,13 +15,13 @@ import javax.inject.Inject;
 @ViewScoped
 public class ProductionEventsCreateView
 {
-	private final ProductionEventRepository productionEventRepository;
+	protected final ProductionEventRepository productionEventRepository;
 	private final EmployeeRepository employeeRepository;
 	private final ProductRepository productRepository;
 
-	private final ProductionEvent productionEvent = new ProductionEvent();
-	private int productId;
-	private String employeeId;
+	protected ProductionEvent productionEvent = new ProductionEvent();
+	protected int productId;
+	protected String employeeId;
 
 	@Inject
 	public ProductionEventsCreateView(ProductionEventRepository productionEventRepository,

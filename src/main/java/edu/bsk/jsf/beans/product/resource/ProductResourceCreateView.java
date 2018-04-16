@@ -15,15 +15,15 @@ import javax.inject.Inject;
 @ViewScoped
 public class ProductResourceCreateView
 {
-	private final ProductResource productResource = new ProductResource();
+	protected ProductResource productResource = new ProductResource();
 
-	private final ProductResourceRepository productResourceRepository;
+	protected final ProductResourceRepository productResourceRepository;
 	private final ProductRepository productRepository;
 	private final ResourceRepository resourceRepository;
 
-	private Integer productId;
+	protected Integer productId;
+	protected Integer resourceId;
 
-	private Integer resourceId;
 	@Inject
 	public ProductResourceCreateView(ProductResourceRepository productResourceRepository,
 			ProductRepository productRepository, ResourceRepository resourceRepository)

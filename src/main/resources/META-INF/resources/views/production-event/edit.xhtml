@@ -2,34 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <ui:composition template="../common/template.xhtml">
+    <ui:define name="head">
+        <f:metadata>
+            <f:viewAction action="#{productEditView.initialize(productionEventId)}"/>
+        </f:metadata>
+    </ui:define>
     <ui:define name="content">
         <h1>Create production event page</h1>
         <h:form>
             <table>
                 <tr>
                     <td>Employee id:</td>
-                    <td><p:inputText value="#{productionEventsCreateView.employeeId}"/></td>
+                    <td><p:inputText value="#{productionEventsEditView.employeeId}"/></td>
                 </tr>
                 <tr>
                     <td>Product id:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productId}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{productionEventsEditView.productId}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Count:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.count}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{productionEventsEditView.productionEvent.count}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Production line:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.productionLine}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{productionEventsEditView.productionEvent.productionLine}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
                 <tr>
                     <td>Workplace:</td>
-                    <td><p:inputNumber value="#{productionEventsCreateView.productionEvent.workplace}" decimalPlaces="0" minValue="0" /></td>
+                    <td><p:inputNumber value="#{productionEventsEditView.productionEvent.workplace}" decimalPlaces="0" minValue="0" /></td>
                 </tr>
             </table>
             <p:commandButton value="Save" actionListener="#{productionEventsCreateView.save()}"

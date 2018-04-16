@@ -52,6 +52,14 @@ public class EmployeeController
 		return employee;
 	}
 
+	@RequestMapping({"/{PESEL}/edit", "/{PESEL}/edit/"})
+	public String edit(@PathVariable String PESEL, ModelMap model)
+	{
+		model.addAttribute("employeePESEL", PESEL);
+		return "employee/edit";
+	}
+
+
 	@RequestMapping({"/{PESEL}/delete", "/{PESEL}/delete/"})
 	public String delete(@PathVariable String PESEL)
 	{

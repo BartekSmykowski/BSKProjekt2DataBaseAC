@@ -13,6 +13,7 @@
             <p:commandButton value="Create new" type="button" onclick="window.location = '/production-event/create'"/><br/>
             <ui:repeat value="#{resourcesMainView.all}" var="productionEvent">
                 <p:link href="/production-event/#{productionEvent.id}" value="#{productionEvent.id}"/>
+                <p:link style="margin-left: 30px;" href="/production-event/#{productionEvent.id}/edit" value="Edit"/>
                 <p:link style="margin-left: 30px;" href="/production-event/#{productionEvent.id}/delete" value="Delete"/><br/>
             </ui:repeat>
         </h:form>

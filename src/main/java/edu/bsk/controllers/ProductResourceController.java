@@ -53,6 +53,13 @@ public class ProductResourceController
 		return productResource;
 	}
 
+	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	public String edit(@PathVariable Integer id, ModelMap model)
+	{
+		model.addAttribute("productResourceId", id);
+		return "product-resource/edit";
+	}
+
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
 	public String delete(@PathVariable Integer id)
 	{
