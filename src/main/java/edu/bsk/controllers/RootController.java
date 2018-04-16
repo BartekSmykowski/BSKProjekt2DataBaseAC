@@ -1,6 +1,5 @@
 package edu.bsk.controllers;
 
-import edu.bsk.exceptions.AccessDeniedException;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
