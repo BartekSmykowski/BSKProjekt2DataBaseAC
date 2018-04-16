@@ -56,4 +56,11 @@ public class ProductionEventsController
 		productionEvent.setWorkplace(-1);
 		return productionEvent;
 	}
+
+	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	public String delete(@PathVariable Integer id)
+	{
+		productionEventRepository.deleteById(id);
+		return "redirect:/production-event/";
+	}
 }

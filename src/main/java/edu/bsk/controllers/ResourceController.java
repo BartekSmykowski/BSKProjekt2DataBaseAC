@@ -53,4 +53,11 @@ public class ResourceController
 		resource.setName("Not found");
 		return resource;
 	}
+
+	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	public String delete(@PathVariable Integer id)
+	{
+		resourceRepository.deleteById(id);
+		return "redirect:/resource/";
+	}
 }

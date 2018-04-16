@@ -52,4 +52,11 @@ public class ProductsController
 		product.setName("Not found");
 		return product;
 	}
+
+	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	public String delete(@PathVariable Integer id)
+	{
+		productRepository.deleteById(id);
+		return "redirect:/product/";
+	}
 }

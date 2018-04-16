@@ -11,7 +11,8 @@
         <h:form>
             <p:commandButton value="Create new" type="button" onclick="window.location = '/resource/create'"/><br/>
             <ui:repeat value="#{resourcesMainView.all}" var="_resource">
-                <p:link href="/resource/#{_resource.id}" value="#{_resource.id}"/><br/>
+                <p:link href="/resource/#{_resource.id}" value="#{_resource.id}"/>
+                <p:link style="margin-left: 30px;" href="/resource/#{_resource.id}/delete" value="Delete"/><br/>
             </ui:repeat>
         </h:form>
     </ui:define>

@@ -52,4 +52,11 @@ public class ProductResourceController
 		productResource.setCount(-1);
 		return productResource;
 	}
+
+	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	public String delete(@PathVariable Integer id)
+	{
+		productResourceRepository.deleteById(id);
+		return "redirect:/product-resource/";
+	}
 }

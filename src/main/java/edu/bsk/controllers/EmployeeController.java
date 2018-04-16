@@ -51,4 +51,11 @@ public class EmployeeController
 		employee.setPESEL("Not found");
 		return employee;
 	}
+
+	@RequestMapping({"/{PESEL}/delete", "/{PESEL}/delete/"})
+	public String delete(@PathVariable String PESEL)
+	{
+		employeeRepository.deleteById(PESEL);
+		return "redirect:/employee/";
+	}
 }
