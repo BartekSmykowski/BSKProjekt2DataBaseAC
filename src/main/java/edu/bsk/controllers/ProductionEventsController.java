@@ -58,14 +58,15 @@ public class ProductionEventsController
 	}
 
 	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista"})
 	public String edit(@PathVariable Integer id, ModelMap model)
 	{
 		model.addAttribute("productionEventId", id);
 		return "production-event/edit";
 	}
 
-
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	@Secured({"ROLE_admin", "ROLE_brygadzista"})
 	public String delete(@PathVariable Integer id)
 	{
 		productionEventRepository.deleteById(id);

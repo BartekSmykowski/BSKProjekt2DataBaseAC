@@ -54,6 +54,7 @@ public class ProductsController
 	}
 
 	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String edit(@PathVariable Integer id, ModelMap model)
 	{
 		model.addAttribute("productId", id);
@@ -61,6 +62,7 @@ public class ProductsController
 	}
 
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String delete(@PathVariable Integer id)
 	{
 		productRepository.deleteById(id);

@@ -53,14 +53,15 @@ public class EmployeeController
 	}
 
 	@RequestMapping({"/{PESEL}/edit", "/{PESEL}/edit/"})
+	@Secured({"ROLE_admin", "ROLE_manager_zatrudnienia"})
 	public String edit(@PathVariable String PESEL, ModelMap model)
 	{
 		model.addAttribute("employeePESEL", PESEL);
 		return "employee/edit";
 	}
 
-
 	@RequestMapping({"/{PESEL}/delete", "/{PESEL}/delete/"})
+	@Secured({"ROLE_admin", "ROLE_manager_zatrudnienia"})
 	public String delete(@PathVariable String PESEL)
 	{
 		employeeRepository.deleteById(PESEL);

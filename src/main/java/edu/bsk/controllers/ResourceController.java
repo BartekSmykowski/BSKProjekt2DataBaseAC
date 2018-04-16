@@ -55,6 +55,7 @@ public class ResourceController
 	}
 
 	@RequestMapping({"/{id}/edit", "/{id}/edit/"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String edit(@PathVariable Integer id, ModelMap model)
 	{
 		model.addAttribute("resourceId", id);
@@ -62,6 +63,7 @@ public class ResourceController
 	}
 
 	@RequestMapping({"/{id}/delete", "/{id}/delete/"})
+	@Secured({"ROLE_admin", "ROLE_magazynier", "ROLE_projektant_produktow"})
 	public String delete(@PathVariable Integer id)
 	{
 		resourceRepository.deleteById(id);
