@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -25,10 +23,6 @@ import java.util.Collections;
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 {
-	@Autowired
-	@CustomAuthentication
-	private UserDetailsService userDetailsService;
-
     @Bean
     public RoleAuthenticationProvider roleAuthenticationProvider(){
     	return new RoleAuthenticationProvider();
@@ -37,20 +31,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
 	{
-		auth.userDetailsService(userDetailsService);
 		auth.authenticationProvider(roleAuthenticationProvider());
 	}
-
-	@Bean
-	public PasswordEncoder passwordEncoder()
-	{
-		return new FakePasswordEncoder();
-	}
-
-//	@Override
-//	public void configure(WebSecurity web) throws Exception {
-//		web.debug(true);
-//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception  

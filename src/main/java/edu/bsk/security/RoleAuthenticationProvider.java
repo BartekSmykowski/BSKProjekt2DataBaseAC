@@ -21,7 +21,8 @@ public class RoleAuthenticationProvider implements AuthenticationProvider {
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
         GrantedAuthority authority = authentication.getAuthorities().iterator().next();
-        String role = authority.getAuthority().split("_")[1];
+        String authorityString = authority.getAuthority();
+        String role = authorityString.substring(authorityString.indexOf("_") + 1);
 
         User user = userRepository.findUserWithRoles(name);
 
