@@ -14,7 +14,7 @@
     <ui:define name="content">
         <div style="margin: auto; width: 380px; margin-top: 100px;">
             <h:form id="loginForm" prependId="false"
-                    onsubmit="this.action='/j_spring_security_check';">
+                    onsubmit="this.action='/authentication/login/process';">
 
                 <p:message for="j_username" display="text" style="color:red"/>
                 <p:message for="j_password" display="text" style="color:red"/>
@@ -28,11 +28,18 @@
 
                     <p:outputLabel for="j_password" value="Password"/>
                     <p:password id="j_password" label="password" required="true"/>
+
+                    <p:outputLabel for="j_role" value="Role"/>
+                    <h:selectOneMenu id="j_role">
+                        <f:selectItems value="#{loginData.roles}" />
+                    </h:selectOneMenu>
+
                     &nbsp;
+
                     <p:outputPanel id="buttonsPanel">
                         <p:commandButton id="adminCredentials" value="Admin"
                                          onclick="useAdminCredentials();" type="button"/>
-                        <p:commandButton id="noRoleCredentials" value="No role"
+                        <p:commandButton id="noRoleCredentials" value="No roles"
                                          onclick="useNoRoleCredentials();" type="button"/>
                         <p:commandButton id="brygadzistaCredentials" value="Brygadzista"
                                          onclick="useBrygadzistaCredentials();" type="button"/>
@@ -57,29 +64,30 @@
     <ui:define name="script">
         <script type="text/javascript">
             function useAdminCredentials() {
-                useCredentials("admin", "admin");
+                useCredentials("admin", "admin", "admin");
             }
-            function useCredentials(username, password) {
+            function useCredentials(username, password, role) {
                 document.getElementById("j_username").value = username;
                 document.getElementById("j_password").value = password;
+                document.getElementById("j_role").value = role;
             }
             function useNoRoleCredentials() {
-                useCredentials("no_role", "no_role");
+                useCredentials("no_role", "no_role", "no_role");
             }
             function useBrygadzistaCredentials() {
-                useCredentials("brygadzista", "brygadzista");
+                useCredentials("brygadzista", "brygadzista", "brygadzista");
             }
             function useMagazynierCredentials() {
-                useCredentials("magazynier", "magazynier");
+                useCredentials("magazynier", "magazynier", "magazynier");
             }
             function useSprzedawcaCredentials() {
-                useCredentials("sprzedawca", "sprzedawca");
+                useCredentials("sprzedawca", "sprzedawca", "sprzedawca");
             }
             function useManagerZatrudnieniaCredentials() {
-                useCredentials("manager_zatrudnienia", "manager_zatrudnienia");
+                useCredentials("manager_zatrudnienia", "manager_zatrudnienia", "manager_zatrudnienia");
             }
             function useProjektantProduktowCredentials() {
-                useCredentials("projektant_produktow", "projektant_produktow");
+                useCredentials("projektant_produktow", "projektant_produktow", "projektant_produktow");
             }
         </script>
     </ui:define>

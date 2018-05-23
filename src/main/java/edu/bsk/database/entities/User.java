@@ -6,10 +6,12 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "User")
 @Table(name = "users", uniqueConstraints =
-@UniqueConstraint(columnNames = { "nickname", "password", "role"}))
+@UniqueConstraint(columnNames = { "nickname", "password"}))
 @Data
 @EqualsAndHashCode(of = "id")
 public class User
@@ -30,6 +32,18 @@ public class User
 	@Column(name = "creation_date", nullable = false)
 	private Date creationDate = new Date();
 
+	@ElementCollection
+	@CollectionTable(name = "roles", joinColumns = @JoinColumn(name = "user_id"))
 	@Column(name = "role", nullable = false)
-	private String role;
+	private Set<String> roles = new HashSet<>();
+
+	protected User(){
+
+	}
+
+	public User(String nickname, String password, Set<String> roles){
+		this.nickname = nickname;
+		this.password = password;
+		this.roles = roles;
+	}
 }

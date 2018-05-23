@@ -1,6 +1,6 @@
 package edu.bsk.controllers;
 
-import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,16 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RootController
 {
 	@GetMapping("/")
-	public String welcomePage(SecurityContextHolderAwareRequestWrapper securityContext)
+	public String welcomePage(Authentication authentication)
 	{
-		if(!isUserLoggedIn(securityContext))
+		if(!isUserLoggedIn(authentication))
 			return "redirect:/authentication/login";
 		return "index";
 	}
 
-	private boolean isUserLoggedIn(SecurityContextHolderAwareRequestWrapper securityContext)
+	private boolean isUserLoggedIn(Authentication authentication)
 	{
-		return securityContext.getRemoteUser() != null;
+		if(authentication == null)
+			return false;
+		return authentication.isAuthenticated();
 	}
 
 } 

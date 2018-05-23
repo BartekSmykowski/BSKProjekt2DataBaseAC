@@ -27,7 +27,7 @@ public class LoginView
 	{
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_ERROR,
-						"Username or password is invalid!",
+						"Username, role or password is invalid!",
 						"(or user is already logged in)"));
 	}
 }

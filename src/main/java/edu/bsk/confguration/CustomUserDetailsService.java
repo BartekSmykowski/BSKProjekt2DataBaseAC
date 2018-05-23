@@ -1,24 +1,21 @@
 package edu.bsk.confguration;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
-
-import javax.transaction.Transactional;
-
 import edu.bsk.database.entities.User;
 import edu.bsk.database.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Component
 @CustomAuthentication
-public class AuthenticationConfiguration implements UserDetailsService
+public class CustomUserDetailsService implements UserDetailsService
 {
 	@Autowired
 	private UserRepository userRepository;
@@ -38,6 +35,8 @@ public class AuthenticationConfiguration implements UserDetailsService
 
 	private Collection<GrantedAuthority> getGrantedAuthorities(User user)
 	{
-		return Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		//user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority("ROLE_" + role)));
+		return authorities;
 	}
 }

@@ -2,7 +2,6 @@ package edu.bsk.database.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
 
@@ -23,6 +22,15 @@ public class ProductResource
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Product product;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Resource resource;
+
+	public ProductResource() {
+	}
+
+	public ProductResource(Product product, Resource resource, int count){
+		this.product = product;
+		this.resource = resource;
+		this.count = count;
+	}
 }

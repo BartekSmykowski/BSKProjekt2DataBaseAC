@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity(name = "Resource")
@@ -24,5 +25,14 @@ public class Resource
 	private int count;
 
 	@OneToMany(mappedBy = "resource", fetch = FetchType.LAZY)
-	private Collection<ProductResource> productResources;
+	private Collection<ProductResource> productResources = new ArrayList<>();
+
+	public Resource(){
+
+	}
+
+	public Resource(String name, int count) {
+		this.name = name;
+		this.count = count;
+	}
 }

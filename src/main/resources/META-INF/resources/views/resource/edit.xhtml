@@ -9,7 +9,7 @@
 <ui:composition template="../common/template.xhtml">
     <ui:define name="head">
         <f:metadata>
-            <f:viewAction action="#{productEditView.initialize(resourceId)}"/>
+            <f:viewAction action="#{resourceEditView.initialize(resourceId)}"/>
         </f:metadata>
     </ui:define>
 
@@ -19,19 +19,19 @@
             <table>
                 <tr>
                     <td>Id:</td>
-                    <td><p:inputNumber value="#{productEditView.resource.id}" decimalPlaces="0" minValue="0"/></td>
+                    <td><p:inputNumber value="#{resourceEditView.resource.id}" decimalPlaces="0" minValue="0"/></td>
                 </tr>
                 <tr>
                     <td>Count:</td>
-                    <td><p:inputNumber value="#{productEditView.resource.count}" decimalPlaces="0" minValue="0"/>
+                    <td><p:inputNumber value="#{resourceEditView.resource.count}" decimalPlaces="0" minValue="0"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Name:</td>
-                    <td><p:inputText value="#{productEditView.resource.name}"/></td>
+                    <td><p:inputText value="#{resourceEditView.resource.name}"/></td>
                 </tr>
             </table>
-            <p:commandButton value="Save" actionListener="#{productEditView.save()}"
+            <p:commandButton value="Save" actionListener="#{resourceEditView.save()}"
                              oncomplete="window.location='/resource'"/>
         </h:form>
     </ui:define>

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity(name = "Product")
@@ -26,9 +27,25 @@ public class Product
 	@Column(name = "count")
 	private int count;
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-	private Collection<ProductionEvent> productionEvents;
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Collection<ProductionEvent> productionEvents = new ArrayList<>();
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-	private Collection<ProductResource> productResources;
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Collection<ProductResource> productResources = new ArrayList<>();
+
+	public Product(){
+
+	}
+
+	public Product(String name, float price, int count) {
+		this.name = name;
+		this.price = price;
+		this.count = count;
+	}
+
+	public void addResource(Resource resource, int count){
+		ProductResource productResource = new ProductResource(this, resource, count);
+		resource.getProductResources().add(productResource);
+		this.getProductResources().add(productResource);
+	}
 }
